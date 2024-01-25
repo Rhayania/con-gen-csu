@@ -3,7 +3,7 @@
 
 # In the following, are questions/exercises/problems labelled like:
 
-#### Ex. X: 
+#### Ex. X:
 
 # where X is a number indicating which exercise it is.
 
@@ -27,51 +27,107 @@ pwd
 
 -----
 
-/Users/eriq
+/home/vasquezk@colostate.edu
 
 
-#### Ex. 2:  Use echo to print `my name is xxxx` to stdout.  Where `xxxx` is 
+#### Ex. 2:  Use echo to print `my name is xxxx` to stdout.  Where `xxxx` is
 ####        replaced by your name
 
-echo "my name is Eric"
+echo "my name is Kira"
 
 ------
 
-my name is Eric
+my name is Kira
 
 
 
 #### Ex. 3:  Now, for real print your name, as in Ex. 2, but put your name in there:
 
+# See above
 
 #### Ex. 3.1 Change directories to the assignments/002-unix-intro directory in the con-gen-csu repo
 
+cd /projects/$USER/con-gen-csu/assignments/002-unix-intro/
 
 #### Ex. 3: print the absolute path of the directory 002-unix-intro that you just changed into
 
-
+/projects/vasquezk@colostate.edu/con-gen-csu/assignments/002-unix-intro
 
 #### Ex. 4: list, in long format, all the files and directories in this homework directory
 
+ls -l
 
+-----
+
+total 280
+drwxr-sr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu   80 Jan 23 10:49 bam
+-rwxr-xr-x. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  112 Jan 23 10:49 count_files.sh
+drwxr-sr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu 2940 Jan 23 10:49 fastq
+drwxr-sr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu   45 Jan 23 10:49 metadata
+drwxr-sr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu   80 Jan 23 10:49 sam
+drwxr-sr-x. 3 vasquezk@colostate.edu vasquezkgrp@colostate.edu  159 Jan 23 10:49 silly
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 9425 Jan 23 10:49 unix-intro-TEMPLATE.sh
 
 #### Ex. 4.5 Without changing directories do a long listing of the con-gen-csu directory
 
+ls -l ../../
 
-#### Ex. 5: In the con-gen-csu directory there is a directory called `.git` that didn't get listed. 
+-----
+
+total 240
+drwxr-sr-x. 7 vasquezk@colostate.edu vasquezkgrp@colostate.edu   164 Jan 25 10:40 assignments
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu   205 Jan 23 10:49 con-gen-csu.Rproj
+drwxr-sr-x. 5 vasquezk@colostate.edu vasquezkgrp@colostate.edu   125 Jan 23 10:49 data
+drwxr-sr-x. 3 vasquezk@colostate.edu vasquezkgrp@colostate.edu    91 Jan 23 10:49 dev
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 22464 Jan 25 10:40 README.md
+
+#### Ex. 5: In the con-gen-csu directory there is a directory called `.git` that didn't get listed.
 ####        List everything again, but make sure `.git` is in the output
 
+ls -la ../../
 
+-----
+
+total 384
+drwxr-sr-x. 6 vasquezk@colostate.edu vasquezkgrp@colostate.edu   184 Jan 25 10:40 .
+drwxrws---. 6 vasquezk@colostate.edu vasquezkgrp@colostate.edu   138 Jan 23 10:49 ..
+drwxr-sr-x. 7 vasquezk@colostate.edu vasquezkgrp@colostate.edu   164 Jan 25 10:40 assignments
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu   205 Jan 23 10:49 con-gen-csu.Rproj
+drwxr-sr-x. 5 vasquezk@colostate.edu vasquezkgrp@colostate.edu   125 Jan 23 10:49 data
+drwxr-sr-x. 3 vasquezk@colostate.edu vasquezkgrp@colostate.edu    91 Jan 23 10:49 dev
+drwxr-sr-x. 8 vasquezk@colostate.edu vasquezkgrp@colostate.edu   354 Jan 25 10:51 .git
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    52 Jan 23 10:49 .gitignore
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 22464 Jan 25 10:40 README.md
 
 #### Ex. 6: What are the other hidden files/directories that show up
 ####        in the above listing? Just list them below (no special command)
 ####        to get them, since you did that above)
 
-
+# .gitignore, .git, ., and ..
 
 #### Ex. 7: List (long format) the contents of the directory `.git` in the con-gen-csu directory
 
+ls -la ../../.git
 
+-----
+
+total 664
+drwxr-sr-x.  8 vasquezk@colostate.edu vasquezkgrp@colostate.edu   354 Jan 25 10:51 .
+drwxr-sr-x.  6 vasquezk@colostate.edu vasquezkgrp@colostate.edu   184 Jan 25 10:40 ..
+drwxr-sr-x.  2 vasquezk@colostate.edu vasquezkgrp@colostate.edu     0 Jan 23 10:49 branches
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    22 Jan 25 10:49 COMMIT_EDITMSG
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu   260 Jan 23 10:49 config
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    73 Jan 23 10:49 description
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    91 Jan 25 10:51 FETCH_HEAD
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    21 Jan 23 10:49 HEAD
+drwxr-sr-x.  2 vasquezk@colostate.edu vasquezkgrp@colostate.edu   487 Jan 23 10:49 hooks
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 15928 Jan 25 10:40 index
+drwxr-sr-x.  2 vasquezk@colostate.edu vasquezkgrp@colostate.edu    25 Jan 23 10:49 info
+drwxr-sr-x.  3 vasquezk@colostate.edu vasquezkgrp@colostate.edu    44 Jan 23 10:49 logs
+drwxr-sr-x. 39 vasquezk@colostate.edu vasquezkgrp@colostate.edu   744 Jan 25 10:51 objects
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu    41 Jan 25 10:49 ORIG_HEAD
+-rw-r--r--.  1 vasquezk@colostate.edu vasquezkgrp@colostate.edu   112 Jan 23 10:49 packed-refs
+drwxr-sr-x.  5 vasquezk@colostate.edu vasquezkgrp@colostate.edu    70 Jan 23 10:49 refs
 
 #### Ex. 8: If you wanted to type `ls fastq/DPCh_plate1_A06_S6.R1.fq.gz`
 ####        on the command line, what is the fewest keystrokes that can
@@ -85,8 +141,8 @@ my name is Eric
 
 
 #### Ex. 10: Copy (not move) all the read1 (`R1`) fastq files in `fastqs`
-####         into `lonely-fastqs/R1` and all the read2 fastqs into 
-####         `lonely-fastqs/R2`. When you are done, list the contents of 
+####         into `lonely-fastqs/R1` and all the read2 fastqs into
+####         `lonely-fastqs/R2`. When you are done, list the contents of
 ####         `lonely-fastqs/R1` and `lonely-fastqs/R2`
 
 
@@ -122,7 +178,7 @@ my name is Eric
 
 
 
-#### Ex. 17: Using the `{,}` construct create five directories named 
+#### Ex. 17: Using the `{,}` construct create five directories named
 ####         `dir_A`, `dir_C`, `dir_E`, `dir_G`, and `dir_I`, and list them
 ####         (but not their contents) when you are done. (Think `ls -d`).
 
@@ -146,14 +202,14 @@ my name is Eric
 
 
 #### Ex. 21: Create a directory called `bad directory name with spaces`, and then,
-####         with redirection, create a file inside it, named 
+####         with redirection, create a file inside it, named
 ####         `bad file name with spaces` whose contents are the string
 ####         `Whoa! No spaces, please!`. Use backslash escaping instead of quoting
 
 
 
 
-#### Ex. 22: Catenate the contents of 
+#### Ex. 22: Catenate the contents of
 ####         `bad directory name with spaces/bad file name with spaces` to stdout.
 
 
@@ -174,7 +230,7 @@ my name is Eric
 
 
 
-#### Ex. 26: If you had just typed `rm -r bad directory name with spaces` 
+#### Ex. 26: If you had just typed `rm -r bad directory name with spaces`
 ####         what would Unix have tried to remove? (No command to type here,
 ####         just answer the question).
 
@@ -195,14 +251,14 @@ my name is Eric
 
 
 
-#### Ex. 30: Now, do the same thing but redirect _stderr_ into a file called 
+#### Ex. 30: Now, do the same thing but redirect _stderr_ into a file called
 ####         `my_bad.txt`, and then catenate the contents of that file, and then remove it
 
 
 
 
 #### Ex. 31: The files in `fastq` are text files, but they are all gzipped.
-####         Using `gzcat` and a pipe, view the first 8 lines of 
+####         Using `gzcat` and a pipe, view the first 8 lines of
 ####         `fastq/DPCh_plate1_C11_S35.R1.fq.gz`
 
 
@@ -213,7 +269,7 @@ my name is Eric
 
 
 
-#### Ex. 33: What do you notice about the names of the two reads in each 
+#### Ex. 33: What do you notice about the names of the two reads in each
 ####         file (Lines 1 and 5, that start with a `@`)
 
 
@@ -229,10 +285,10 @@ my name is Eric
 
 
 
-#### Ex. 36: Note that gzcat will decompress all files you give itand send the 
-####         output to _stdout_. Knowing this, count how many lines are in each of 
+#### Ex. 36: Note that gzcat will decompress all files you give itand send the
+####         output to _stdout_. Knowing this, count how many lines are in each of
 ####         the `R1` files in `fastq` (after decompressing them into text files),
-####         and also count up all the lines in the `R1` files in `fastq`. 
+####         and also count up all the lines in the `R1` files in `fastq`.
 ####         Note they should be the same.
 
 
@@ -243,8 +299,8 @@ my name is Eric
 
 
 #### Ex. 38: People are usually familiar with using `cat` to catenate text
-####         files. It turns out that you can also catenate `gzip` compressed files. 
-####         The result is another properly gzipped file that can be decompressed. 
+####         files. It turns out that you can also catenate `gzip` compressed files.
+####         The result is another properly gzipped file that can be decompressed.
 ####         Catenate all the gzipped `R1` files in `fastq` into a single (still gzipped)
 ####         file called `R1_all_via_cat.fq.gz`
 
@@ -309,7 +365,7 @@ my name is Eric
 
 
 
-#### Ex. 50: Note that `count_files.sh` is a short shell script. Try to 
+#### Ex. 50: Note that `count_files.sh` is a short shell script. Try to
 ####         execute it with `./count_files.sh`
 
 
@@ -324,9 +380,7 @@ my name is Eric
 
 
 #### Ex. 52: Use chmod to change permissions of the files in the `silly`
-####         directory to match their names. For example for the first 
+####         directory to match their names. For example for the first
 ####         one you would use: `chmod 770 FILE-rwxrwx---`. Use the octal
 ####         specifiers to `chmod`. Do this for all 5 files (one chmod command for each),
 ####         and at the end do `ls -l silly` to verify they are correct.
-
-
