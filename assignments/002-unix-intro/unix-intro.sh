@@ -133,7 +133,7 @@ drwxr-sr-x.  5 vasquezk@colostate.edu vasquezkgrp@colostate.edu    70 Jan 23 10:
 ####        on the command line, what is the fewest keystrokes that can
 ####        get you `fastq/DPCh_plate1_A06_S6.R1.fq.gz` using TAB completion?
 
-
+# "ls ", then "f[TAB]", then "D[TAB]", then "A06[TAB]", then "1[TAB]"
 
 #### Ex. 9: Make a new directory called `lonely-fastqs`, and inside of that,
 ####        two directories R1 and R2.
