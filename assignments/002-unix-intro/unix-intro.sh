@@ -255,7 +255,7 @@ rm -r d*
 mkdir nice_dir_name
 echo "A string in a file!" > nice_dir_name/nice_file_name
 
-#### Ex. 20: Concatenate the contents of `nice_dir_name/nice_file_name` to _stdout_
+#### Ex. 20: Catenate the contents of `nice_dir_name/nice_file_name` to _stdout_
 
 cat nice_dir_name/nice_file_name
 
@@ -268,28 +268,37 @@ A string in a file!
 ####         `bad file name with spaces` whose contents are the string
 ####         `Whoa! No spaces, please!`. Use backslash escaping instead of quoting
 
-TODO
+mkdir bad\ directory\ name\ with\ spaces
+echo "Whoa! No spaces, please!" > bad\ directory\ name\ with\ spaces/bad\ file\ name\ with\ spaces
 
 #### Ex. 22: Catenate the contents of
 ####         `bad directory name with spaces/bad file name with spaces` to stdout.
 
-TODO
+cat bad\ directory\ name\ with\ spaces/bad\ file\ name\ with\ spaces
+
+-----
+
+Whoa! No spaces, please!
 
 #### Ex. 23: List the directories (just the names, not the contents (`-d`)) of
 ####         `bad directory name with spaces` and `nice_dir_name`.
 
-TODO
+ls -d *dir*
+
+-----
+
+'bad directory name with spaces'   nice_dir_name
 
 #### Ex. 24: Once you are convinced that you can list the directories
 ####         correctly in your terminal, recall that `ls` command (i.e. get it back on the
 ####         command line using the up arrow on your keyboard) and replace `ls` with
 ####         `rm -r` to remove them. BE CAREFUL with the rm command!
 
-TODO
+rm -r *dir*
 
 #### Ex. 25: Why is it a good idea to `ls` things before removing them?
 
-# That way you know what is in the directory and what they are names, so you don't accidentally delete anything.
+# Especially when trying to select multiple files/directories at once, you want to make sure to are targeting what you think you're targeting since rm can't be undone.
 
 #### Ex. 26: If you had just typed `rm -r bad directory name with spaces`
 ####         what would Unix have tried to remove? (No command to type here,
@@ -302,40 +311,84 @@ TODO
 ####         and copy all those files into that new directory. List the directory
 ####         when you are done.
 
-TODO
+mkdir A05_S5
+cp bam/*A05_S5* A05_S5/
+cp sam/*A05_S5* A05_S5/
+cp fastq/*A05_S5* A05_S5/
+ls A05_S5
+
+-----
+
+DPCh_plate1_A05_S5.bam  DPCh_plate1_A05_S5.R1.fq.gz  DPCh_plate1_A05_S5.R2.fq.gz  DPCh_plate1_A05_S5.sam
 
 #### Ex. 28: remove the directory `A05_S5` and its contents
 
-TODO
+rm -r A05_S5/
 
 #### Ex. 29: Use `ls` to try to list the file `it_aint_here`
 
-TODO
+ls it_aint_here
+
+-----
+
+ls: cannot access 'it_aint_here': No such file or directory
 
 #### Ex. 30: Now, do the same thing but redirect _stderr_ into a file called
 ####         `my_bad.txt`, and then catenate the contents of that file, and then remove it
 
-TODO
+ls it_aint_here 2> my_bad.txt
+cat my_bad.txt
+rm my_bad.txt
+
+-----
+
+ls: cannot access 'it_aint_here': No such file or directory
 
 #### Ex. 31: The files in `fastq` are text files, but they are all gzipped.
 ####         Using `gzcat` and a pipe, view the first 8 lines of
 ####         `fastq/DPCh_plate1_C11_S35.R1.fq.gz`
 
-TODO
+# I had to use zcat since gzcat was an unknown command
+zcat fastq/DPCh_plate1_C11_S35.R1.fq.gz | head -n 8
+
+-----
+
+@K00364:64:HTYYCBBXX:1:1101:1824:48192/1
+GTAGAATAATAGTGAATCAAATCAAATGTTATTTGTCACATGCGCTGAATACAACAGGTGTGGACCTTACAGTGAAATGCTTCCTTACAAGCCCTTAACCAACAATGCAGTTTTAAGAAAAATGAGTGTGAGATAAGTAAAAAATAGAAAA
++
+AAFFFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJAJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFJJJJJJJJJJJJ7JJJJJJFFFFJJJJJJ7A7AJJAFAJJJJJFJJJJ-<JFJ-FFFJJJ
+@K00364:64:HTYYCBBXX:1:1101:2869:22080/1
+TTAAAACACGGTATGATGCAAGCAGCACAACACATCAATAACAAAAATACAAGAATTAGGGTCAGAAATCCAGTAACCACCATACTAGTGTACTTACCAAACCAGGCTCCCAACCAAGAGAACAGTCCAGACTCCTCCACCCTCGCCATGG
++
+-AAFFJJJJJJJJJJJJFFJJJFJFJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJFFJJJ<JJJJJJFFFFJFFJJJJJJAFJJJJJJJJJJJJJJJJJJFAJJJJJJJJJJJJJJJJJJJFJJJFAJJJJJJJFJJJJJJJJFFJJ
 
 #### Ex. 32: Do the same to see the first 8 lines of `fastq/DPCh_plate1_C11_S35.R2.fq.gz`
 
-TODO
+zcat fastq/DPCh_plate1_C11_S35.R2.fq.gz | head -n 8
+
+-----
+
+# Had to comment this output so it wouldn't affect my text editor's syntax highlighting 
+
+# @K00364:64:HTYYCBBXX:1:1101:1824:48192/2
+# CACAAGGAACGACAGAGGGTAGTGCGTACGGCCCAGCACATCACTGGGACCAAGCATCCTGCAATCCAGGACCTCCATACCAGGCGGTGTCAGAGGAAGGCCCTAAAATTGTCAAAGACTCCAGCCACCCTAGTCATTAACTCTTCGCTCT
+# +
+# A<-A-<-F<AJ-<---<<--<-<-7FFJ-77A<-<--7-<7-<-7<J<77A<--7-AAA7-AF-7FAF<-<FJ---7-77FJA7-77F7FFJ7F<--<--77)A7FA-A7-<---7<<F7-<-7<))7--)<)7<AF----7<<<<-)-7)
+# @K00364:64:HTYYCBBXX:1:1101:2869:22080/2
+# CTATGATCAACAGCGTTTTGTGATTTACCCCCGTGATGCACTCACTGGTATGTCTGAACAGCTTGAGGCCACATCTAGGGTTGCCAGACAGAATAGACTTGCTTTGGATATGCTTCTTGCCAGTCAGGGGGGTGTCTGTAAGATGTTCGGT
+# +
+# AAAFAFJJJJJJJJJJ-FJJJJJJFJJJJFJJJJJJJJJJJJJFJFFJFFFFFFJFFJJJFJFAAA777AAJJJAA--A<-A<-JJA-<JFJJJ-7<-AAJJFJJJ<JJ<JAFFFF---7<<7777<)7<<-<777-<-7--<FJJ<F-<<
 
 #### Ex. 33: What do you notice about the names of the two reads in each
 ####         file (Lines 1 and 5, that start with a `@`)
 
-TODO
+# Each file shows the same data reads, just from the opposite paired end. Both files together provide paired-end data for a single sample.
 
 #### Ex. 34: Print the date, redirect it to a file called `now.txt`,
 ####         catenate that file to _stdout_ and then remove it
 
-TODO
+cat now.txt
+rm now.txt
 
 #### Ex. 35: Count the number of lines/words/characters (using `wc`)
 ####         in the two SAM files in the `sam` directory
