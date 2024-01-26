@@ -201,14 +201,31 @@ mkdir fq_AB fq_notAB
 ####         belong to sample names (the part immediately after `DPCh_plate1_`)
 ####         starting with an `A` or `B` to `fq_AB`.
 
-cp fastq/
+cp fastq/*[AB]* fq_AB/
 
 #### Ex. 15: Now, using negation (`^`) with `[` and `]` copy all the
 ####         R1 files that don't belong to sample names starting with an
 ####         `A` or a `B` to `fq_notAB`. When you are done, on the next line in
 ####         the code block, list the contents of `fq_AB` and `fq_notAB`.
 
-TODO
+cp fastq/DPCh_plate1_[^AB]* fq_notAB/
+ls fq_AB/
+ls fq_notAB/
+
+-----
+
+DPCh_plate1_A05_S5.R1.fq.gz  DPCh_plate1_A06_S6.R2.fq.gz   DPCh_plate1_A12_S12.R1.fq.gz  DPCh_plate1_B05_S17.R2.fq.gz  DPCh_plate1_B11_S23.R1.fq.gz  DPCh_plate1_B12_S24.R2.fq.gz
+DPCh_plate1_A05_S5.R2.fq.gz  DPCh_plate1_A11_S11.R1.fq.gz  DPCh_plate1_A12_S12.R2.fq.gz  DPCh_plate1_B06_S18.R1.fq.gz  DPCh_plate1_B11_S23.R2.fq.gz
+DPCh_plate1_A06_S6.R1.fq.gz  DPCh_plate1_A11_S11.R2.fq.gz  DPCh_plate1_B05_S17.R1.fq.gz  DPCh_plate1_B06_S18.R2.fq.gz  DPCh_plate1_B12_S24.R1.fq.gz
+
+DPCh_plate1_C05_S29.R1.fq.gz  DPCh_plate1_D05_S41.R1.fq.gz  DPCh_plate1_E05_S53.R1.fq.gz  DPCh_plate1_F05_S65.R1.fq.gz  DPCh_plate1_G05_S77.R1.fq.gz  DPCh_plate1_H05_S89.R1.fq.gz
+DPCh_plate1_C05_S29.R2.fq.gz  DPCh_plate1_D05_S41.R2.fq.gz  DPCh_plate1_E05_S53.R2.fq.gz  DPCh_plate1_F05_S65.R2.fq.gz  DPCh_plate1_G05_S77.R2.fq.gz  DPCh_plate1_H05_S89.R2.fq.gz
+DPCh_plate1_C06_S30.R1.fq.gz  DPCh_plate1_D06_S42.R1.fq.gz  DPCh_plate1_E06_S54.R1.fq.gz  DPCh_plate1_F06_S66.R1.fq.gz  DPCh_plate1_G06_S78.R1.fq.gz  DPCh_plate1_H06_S90.R1.fq.gz
+DPCh_plate1_C06_S30.R2.fq.gz  DPCh_plate1_D06_S42.R2.fq.gz  DPCh_plate1_E06_S54.R2.fq.gz  DPCh_plate1_F06_S66.R2.fq.gz  DPCh_plate1_G06_S78.R2.fq.gz  DPCh_plate1_H06_S90.R2.fq.gz
+DPCh_plate1_C11_S35.R1.fq.gz  DPCh_plate1_D11_S47.R1.fq.gz  DPCh_plate1_E11_S59.R1.fq.gz  DPCh_plate1_F11_S71.R1.fq.gz  DPCh_plate1_G11_S83.R1.fq.gz  DPCh_plate1_H11_S95.R1.fq.gz
+DPCh_plate1_C11_S35.R2.fq.gz  DPCh_plate1_D11_S47.R2.fq.gz  DPCh_plate1_E11_S59.R2.fq.gz  DPCh_plate1_F11_S71.R2.fq.gz  DPCh_plate1_G11_S83.R2.fq.gz  DPCh_plate1_H11_S95.R2.fq.gz
+DPCh_plate1_C12_S36.R1.fq.gz  DPCh_plate1_D12_S48.R1.fq.gz  DPCh_plate1_E12_S60.R1.fq.gz  DPCh_plate1_F12_S72.R1.fq.gz  DPCh_plate1_G12_S84.R1.fq.gz  DPCh_plate1_H12_S96.R1.fq.gz
+DPCh_plate1_C12_S36.R2.fq.gz  DPCh_plate1_D12_S48.R2.fq.gz  DPCh_plate1_E12_S60.R2.fq.gz  DPCh_plate1_F12_S72.R2.fq.gz  DPCh_plate1_G12_S84.R2.fq.gz  DPCh_plate1_H12_S96.R2.fq.gz
 
 #### Ex. 16: Remove `fq_AB` and `fq_notAB`, and their contents
 
@@ -218,23 +235,33 @@ rm -r fq_AB fq_notAB
 ####         `dir_A`, `dir_C`, `dir_E`, `dir_G`, and `dir_I`, and list them
 ####         (but not their contents) when you are done. (Think `ls -d`).
 
-TODO
+mkdir dir_{A,C,E,G,I}
+ls -d dir_*
+
+-----
+
+dir_A  dir_C  dir_E  dir_G  dir_I
 
 #### Ex. 18: Using globbing, remove `dir_A`, `dir_C`, `dir_E`, `dir_G`, and `dir_I`,
 ####         using a command with 8 characters (including spaces)
 
-TODO
+rm -r d*
 
 #### Ex. 19: Create a directory called `nice_dir_name` and then use `echo`,
 ####         redirecting its output to create a file called `nice_file_name`
 ####         inside of `nice_dir_name` whose contents is the string
 ####         `A string in a file!`
 
-TODO
+mkdir nice_dir_name
+echo "A string in a file!" > nice_dir_name/nice_file_name
 
 #### Ex. 20: Concatenate the contents of `nice_dir_name/nice_file_name` to _stdout_
 
-TODO
+cat nice_dir_name/nice_file_name
+
+-----
+
+A string in a file!
 
 #### Ex. 21: Create a directory called `bad directory name with spaces`, and then,
 ####         with redirection, create a file inside it, named
