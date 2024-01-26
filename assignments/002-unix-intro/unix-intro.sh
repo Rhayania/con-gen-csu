@@ -368,7 +368,7 @@ zcat fastq/DPCh_plate1_C11_S35.R2.fq.gz | head -n 8
 
 -----
 
-# Had to comment this output so it wouldn't affect my text editor's syntax highlighting 
+# Had to comment this output so it wouldn't affect my text editor's syntax highlighting
 
 # @K00364:64:HTYYCBBXX:1:1101:1824:48192/2
 # CACAAGGAACGACAGAGGGTAGTGCGTACGGCCCAGCACATCACTGGGACCAAGCATCCTGCAATCCAGGACCTCCATACCAGGCGGTGTCAGAGGAAGGCCCTAAAATTGTCAAAGACTCCAGCCACCCTAGTCATTAACTCTTCGCTCT
@@ -387,13 +387,24 @@ zcat fastq/DPCh_plate1_C11_S35.R2.fq.gz | head -n 8
 #### Ex. 34: Print the date, redirect it to a file called `now.txt`,
 ####         catenate that file to _stdout_ and then remove it
 
+date > now.txt
 cat now.txt
 rm now.txt
+
+-----
+
+Fri Jan 26 15:05:12 MST 2024
 
 #### Ex. 35: Count the number of lines/words/characters (using `wc`)
 ####         in the two SAM files in the `sam` directory
 
-TODO
+wc sam/*
+
+-----
+
+14219  45092 511203 sam/DPCh_plate1_A05_S5.sam
+14150  43985 479977 sam/DPCh_plate1_A06_S6.sam
+28369  89077 991180 total
 
 #### Ex. 36: Note that gzcat will decompress all files you give itand send the
 ####         output to _stdout_. Knowing this, count how many lines are in each of
