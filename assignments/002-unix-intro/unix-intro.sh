@@ -587,18 +587,35 @@ head -n 15 sam/DPCh_plate1_A05_S5.sam
 
 #### Ex. 49: Catenate the file `count_files.sh` to _stdout_
 
-TODO
+cat count_files.sh
+
+-----
+
+# This looks fun
+ls -lR  * | awk 'NF>7' | wc | awk '{print "Estimated", $1, "files in the current directory"}'
 
 #### Ex. 50: Note that `count_files.sh` is a short shell script. Try to
 ####         execute it with `./count_files.sh`
 
-TODO
+./count_files.sh
+
+-----
+
+Estimated 78 files in the current directory
 
 #### Ex. 51: List (long) `count_files.sh` to see what the permissions are,
 ####         and then add execute (`x`) permissions to users and groups with
 ####         the "add-or-subtract permissions syntax" of `chmod`, then long list it again
 
-TODO
+ls -l count_files.sh
+chmod ug+x count_files.sh
+ls -l count_files.sh
+
+----- # There was already a x for all three groups
+
+-rwxr-xr-x. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 112 Jan 23 10:49 count_files.sh
+
+-rwxr-xr-x. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu 112 Jan 23 10:49 count_files.sh
 
 #### Ex. 52: Use chmod to change permissions of the files in the `silly`
 ####         directory to match their names. For example for the first
@@ -606,4 +623,26 @@ TODO
 ####         specifiers to `chmod`. Do this for all 5 files (one chmod command for each),
 ####         and at the end do `ls -l silly` to verify they are correct.
 
-TODO
+ls -l silly/
+chmod 775 silly/DIRdrwxrwxr-x/
+chmod 640 silly/FILE-rw-r-----
+chmod 664 silly/FILE-rw-rw-r--
+chmod 740 silly/FILE-rwxr-----
+chmod 774 silly/FILE-rwxrwxr--
+ls -l silly/
+
+-----
+
+total 128
+drwxr-sr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu 23 Jan 23 10:49 DIRdrwxrwxr-x
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rw-r-----
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rw-rw-r--
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rwxr-----
+-rw-r--r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rwxrwxr--
+
+total 128
+drwxrwsr-x. 2 vasquezk@colostate.edu vasquezkgrp@colostate.edu 23 Jan 23 10:49 DIRdrwxrwxr-x
+-rw-r-----. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rw-r-----
+-rw-rw-r--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rw-rw-r--
+-rwxr-----. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rwxr-----
+-rwxrwxr--. 1 vasquezk@colostate.edu vasquezkgrp@colostate.edu  0 Jan 23 10:49 FILE-rwxrwxr--
